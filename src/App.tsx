@@ -4,7 +4,6 @@ import { RecoilRoot } from 'recoil'
 // const MainPage = React.lazy(() => import('@pages/index/index'))
 import MainPage from '@/pages/index/index'
 
-
 function App() {
     return (
         <RecoilRoot>
