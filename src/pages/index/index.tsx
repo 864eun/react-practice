@@ -1,3 +1,8 @@
+import {imageData} from '@/recoil/selectors/imageSeletor'
+import { useState } from 'react'
+import { CardDTO } from './types/card'
+import { useRecoilValue } from 'recoil'
+
 import styles from './styles/index.module.scss'
 
 import CommonHeader from '@/components/common/header/CommonHeader'
@@ -6,7 +11,18 @@ import CommonSearchBar from '@/components/common/searchBar/CommonSearchBar'
 import CommonFooter from '@/components/common/footer/CommonFooter'
 import Card from './components/Card'
 
+
 function index() {
+    const imageSelector = useRecoilValue(imageData)
+    const [imgData, setimgData] = useState<CardDTO[]>([])
+
+    const cardList = imageSelector.data.results.map((card:CardDTO)=>{
+        return (
+            <Card data={card} key={card.id} />
+        )}
+    )
+
+
   return (
     <div className={styles.page}>
         {/*공통 헤더 ui 부분*/}
@@ -25,10 +41,7 @@ function index() {
                     <CommonSearchBar />
                 </div>
             </div>
-            <div className={styles.page__contents__imageBox}>
-                <Card/>
-                <Card/>
-                <Card/>
+            <div className={styles.page__contents__imageBox}>{cardList}
             </div>
         </div>
         {/* 공통 푸터 ui 부분*/}

@@ -23,7 +23,7 @@ const naviLinks =navigation.map((item:Navigation)=>{
 })
   
 return (
-    <div className={styles.navigation}>{naviLinks}</div>
+    <nav className={styles.navigation}>{naviLinks}</nav>
   )
 }
 
