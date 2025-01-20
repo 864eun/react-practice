@@ -1,6 +1,11 @@
+import { CardDTO,Tag } from "@/pages/index/types/card";
 import styles from "./DetailDialog.module.scss";
 
-function DetailDialog() {
+interface Props{
+    data : CardDTO
+}
+
+function DetailDialog({data}:Props) {
     return (
         <div className={styles.container}>
         <div className={styles.container__dialog}>
