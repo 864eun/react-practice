@@ -10,6 +10,7 @@ import CommonNav from '@/components/common/navigation/CommonNav'
 import CommonSearchBar from '@/components/common/searchBar/CommonSearchBar'
 import CommonFooter from '@/components/common/footer/CommonFooter'
 import DetailDialog from '@/components/common/dialog/DetailDialog'
+import Loading from './components/Loading'
 import Card from './components/Card'
 
 
@@ -26,7 +27,7 @@ function index() {
             })
             return result
         } else {
-            return <div>loading...</div>
+            return <Loading/>
         }
     }, [imgSelector])
 
@@ -53,7 +54,7 @@ function index() {
         </div>
         {/* 공통 푸터 ui 부분*/}
         <CommonFooter />
-        {open &&<DetailDialog data={imgData}/>}
+        {open && <DetailDialog data={imgData} handleDialog={setOpen} />}
     </div>
   )
 }
