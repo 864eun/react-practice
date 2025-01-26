@@ -18,7 +18,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.2",
     "react-simple-toast": "^1.0.10",
-    "react-simple-toasts": "^6.1.0",
+    "react-simple-toasts": "^5.10.0",
     "recoil": "^0.7.7",
     "sass": "^1.83.4",
     "sort-by": "^1.2.0"
