@@ -17,8 +17,9 @@ import Card from './components/Card'
 function index() {
     const imgSelector = useRecoilValueLoadable(imageData)
     const [imgData, setImgData] = useState<CardDTO>()
-    const [open, setOpen] = useState<boolean>(false) // 이미지 상세 다이얼로그 발생(관리) State
-
+    const [open, setOpen] = useState<boolean>(false) 
+    
+    //imgSelector(API 데이터)를 카드에 바인딩
     const CARD_LIST = useMemo(() => {
         console.log(imgSelector)
         if (imgSelector !== null && imgSelector.state === 'hasValue') {
@@ -33,9 +34,9 @@ function index() {
 
   return (
     <div className={styles.page}>
-        {/*공통 헤더 ui 부분*/}
+        {/*공통 헤더 */}
         <CommonHeader />
-        {/*공동 네비게이션 ui 부분*/}
+        {/*공동 네비게이션 */}
         <CommonNav />
         <div className={styles.page__contents}>
             <div className={styles.page__contents__introBox}>
@@ -45,14 +46,14 @@ function index() {
                         인터넷의 시각 자료 출처입니다<br/>
                         모든 지역에 있는 크리에디터들의 지원을 받습니다
                     </span>
-                    {/*검색창 ui 부분*/}
+                    {/*검색창 */}
                     <CommonSearchBar />
                 </div>
             </div>
             <div className={styles.page__contents__imageBox}>{CARD_LIST}
             </div>
         </div>
-        {/* 공통 푸터 ui 부분*/}
+        {/* 공통 푸터 */}
         <CommonFooter />
         {open && <DetailDialog data={imgData} handleDialog={setOpen} />}
     </div>
