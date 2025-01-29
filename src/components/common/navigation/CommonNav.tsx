@@ -24,6 +24,7 @@ function CommonNav() {
         navigation.forEach((nav: Navigation) => {
             nav.isActive = false
 
+            //nav.path과 현재 페이지의 pathname이 같으면 활성화, setSearch,setPage 실행
             if (nav.path === location.pathname || location.pathname.includes(nav.path)) {
                 nav.isActive = true
                 setSearch(nav.searchValue)
@@ -33,7 +34,7 @@ function CommonNav() {
         setNavigation([...navigation])
     }, [location.pathname])
 
-    // useState로 선언한 반응성을 가진 데이터를 기반으로 UI를 반복호출해보도록 한다.
+    //Navigation을 map하여 nav만들기
     const navLinks = navigation.map((item: Navigation) => {
         return (
             <Link to={item.path} className={item.isActive ? `${styles.navigation__menu} ${styles.active}` : `${styles.navigation__menu} ${styles.inactive}`} key={item.path}>
